@@ -35,5 +35,18 @@ namespace Factory1
             var result = Activator.CreateInstance(type);
             return result as I;
         }
+
+        public I Create(string name, object param1)
+        {
+            typeMap.TryGetValue(name, out var type);
+            if (type == null)
+            {
+                throw new Exception($"Factory cannot create type of for type designator {name}.");
+            }
+            var result = Activator.CreateInstance(type, param1);
+            return result as I;
+        }
+
+
     }
 }

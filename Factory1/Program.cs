@@ -30,7 +30,7 @@ namespace Factory1
                 var t1 = t0.GetInterfaces().ToList();
 
                 var factory = new Factory<IFoo>();
-                var x = factory.Create("Hello2");
+                var x = factory.Create("Hello", 3);
                 x.Fred();
                 Console.WriteLine();
             }
